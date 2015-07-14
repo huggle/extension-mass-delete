@@ -12,25 +12,55 @@
 #define NUKE_HPP
 
 #include <iextension.hpp>
+#include <apiquery.hpp>
+#include <collectable_smartptr.hpp>
+#include <QCheckBox>
+#include <QModelIndex>
 #include <QDialog>
 
-namespace Ui {
-class Nuke;
+class QTimer;
+
+namespace Ui
+{
+    class Nuke;
+}
+
+namespace Huggle
+{
+    class MainWindow;
+    class WikiPage;
+    class WikiUser;
+    class WikiSite;
 }
 
 class Nuke : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit Nuke(QWidget *parent = 0);
-    ~Nuke();
+    public:
+        static Huggle::MainWindow *Window;
 
-private slots:
-    void on_pushButton_clicked();
+        explicit Nuke(QWidget *parent = 0);
+        ~Nuke();
+        Huggle::WikiSite *Site();
+        void Reload();
+        void InsertRevision(QString type, QString title, QString time, QString summary, QString diff);
+        int CurrentEdit;
+        int Edits;
 
-private:
-    Ui::Nuke *ui;
+    private slots:
+        void on_pushButton_clicked();
+        void on_pushButton_2_clicked();
+        void OnTick();
+        void on_tableWidget_clicked(const QModelIndex &index);
+        void on_pushButton_3_clicked();
+
+    private:
+        Huggle::Collectable_SmartPtr<Huggle::ApiQuery> qEdits;
+        QTimer *timer;
+        Huggle::Collectable_SmartPtr<Huggle::ApiQuery> Delete;
+        QList<QCheckBox*> CheckBoxes;
+        Ui::Nuke *ui;
 };
 
 #endif // NUKE_HPP

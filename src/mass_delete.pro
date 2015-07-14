@@ -46,8 +46,8 @@ HEADERS += \
 #win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../huggle3-qt-lx/huggle-build/ -llibcore
 #else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../huggle3-qt-lx/huggle-build/ -llibcored
 
-INCLUDEPATH += $$PWD/../../huggle3-qt-lx/huggle
-DEPENDPATH += $$PWD/../../huggle3-qt-lx/huggle
+INCLUDEPATH += $$PWD/../../..
+DEPENDPATH += $$PWD/../../..
 
 OTHER_FILES += \
     enwiki.json

@@ -18,7 +18,6 @@
 
 namespace Huggle
 {
-    class MainWindow;
     class WikiPage;
     class WikiEdit;
     class WikiSite;
@@ -48,8 +47,6 @@ class huggle_mass : public QDeclarativeItem, public Huggle::iExtension
         bool RequestConfiguration() { return true; }
     private slots:
         void ClickMenu();
-    private:
-        Huggle::MainWindow *Window;
 };
 
 QML_DECLARE_TYPE(huggle_mass)

@@ -51,15 +51,15 @@ bool huggle_mass::IsWorking()
 
 void huggle_mass::Hook_MainWindowOnLoad(void *window)
 {
-    this->Window = (Huggle::MainWindow*)window;
-    this->menu = new QAction("Mass actions", this->Window->ui->menuFile);
-    this->Window->ui->menuFile->insertAction(this->Window->ui->actionExit, this->menu);
+    Nuke::Window = (Huggle::MainWindow*)window;
+    this->menu = new QAction("Mass actions", Nuke::Window->ui->menuFile);
+    Nuke::Window->ui->menuFile->insertAction(Nuke::Window->ui->actionExit, this->menu);
     connect(this->menu, SIGNAL(triggered()), this, SLOT(ClickMenu()));
 }
 
 void huggle_mass::ClickMenu()
 {
-    Nuke *window = new Nuke(this->Window);
+    Nuke *window = new Nuke(Nuke::Window);
     window->setAttribute(Qt::WA_DeleteOnClose);
     window->show();
 }
