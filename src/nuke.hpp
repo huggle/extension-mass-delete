@@ -11,7 +11,9 @@
 #ifndef NUKE_HPP
 #define NUKE_HPP
 
-#include <iextension.hpp>
+#define HUGGLE_EXTENSION
+#include <definitions.hpp>
+
 #include <apiquery.hpp>
 #include <collectable_smartptr.hpp>
 #include <QCheckBox>
