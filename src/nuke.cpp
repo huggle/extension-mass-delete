@@ -244,8 +244,8 @@ void Nuke::OnTick()
 
 void Nuke::on_tableWidget_clicked(const QModelIndex &index)
 {
-    this->ui->webView->setHtml(_l("wait"));
-
+    //this->ui->webView->setHtml(_l("wait"));
+    this->ui->webView->setHtml("This feature is not implemented yet");
 }
 
 void Nuke::on_pushButton_3_clicked()
