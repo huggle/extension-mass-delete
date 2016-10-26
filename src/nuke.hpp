@@ -30,6 +30,7 @@ namespace Ui
 namespace Huggle
 {
     class MainWindow;
+    class HuggleWeb;
     class WikiPage;
     class WikiUser;
     class WikiSite;
@@ -62,6 +63,7 @@ class Nuke : public QDialog
         QTimer *timer;
         Huggle::Collectable_SmartPtr<Huggle::ApiQuery> Delete;
         QList<QCheckBox*> CheckBoxes;
+        Huggle::HuggleWeb *web = nullptr;
         Ui::Nuke *ui;
 };
 

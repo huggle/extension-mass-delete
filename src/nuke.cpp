@@ -15,6 +15,11 @@
 #include <history.hpp>
 #include <historyitem.hpp>
 #include <localization.hpp>
+#ifdef HUGGLE_WEBEN
+    #include <web_engine/huggleweb.hpp>
+#else
+    #include <webkit/huggleweb.hpp>
+#endif
 #include <mainwindow.hpp>
 #include <syslog.hpp>
 #include <QTimer>
@@ -25,9 +30,7 @@ using namespace Huggle;
 
 MainWindow *Nuke::Window = NULL;
 
-Nuke::Nuke(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Nuke)
+Nuke::Nuke(QWidget *parent) : QDialog(parent), ui(new Ui::Nuke)
 {
     this->ui->setupUi(this);
 
@@ -66,11 +69,14 @@ Nuke::Nuke(QWidget *parent) :
         this->ui->comboBox->addItem(sx->Name);
     }
     this->ui->comboBox->setCurrentIndex(0);
+    this->web = new HuggleWeb(this);
+    this->ui->wxLayout->addWidget(this->web);
 }
 
 Nuke::~Nuke()
 {
     delete this->ui;
+    delete this->web;
     while (this->CheckBoxes.count())
     {
         delete this->CheckBoxes.at(0);
@@ -245,7 +251,7 @@ void Nuke::OnTick()
 void Nuke::on_tableWidget_clicked(const QModelIndex &index)
 {
     //this->ui->webView->setHtml(_l("wait"));
-    this->ui->webView->setHtml("This feature is not implemented yet");
+    this->web->RenderHtml("This feature is not implemented yet");
 }
 
 void Nuke::on_pushButton_3_clicked()

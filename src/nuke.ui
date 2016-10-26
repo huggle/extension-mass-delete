@@ -131,13 +131,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QWebView" name="webView">
-     <property name="url">
-      <url>
-       <string>about:blank</string>
-      </url>
-     </property>
-    </widget>
+    <layout class="QVBoxLayout" name="wxLayout"/>
    </item>
    <item>
     <widget class="QPushButton" name="pushButton_2">
@@ -148,13 +142,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKitWidgets/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
