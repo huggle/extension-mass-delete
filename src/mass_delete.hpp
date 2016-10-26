@@ -14,7 +14,6 @@
 #define HUGGLE_EXTENSION
 #include <iextension.hpp>
 #include <QAction>
-#include <QDeclarativeItem>
 
 namespace Huggle
 {
@@ -23,7 +22,7 @@ namespace Huggle
     class WikiSite;
 }
 
-class huggle_mass : public QDeclarativeItem, public Huggle::iExtension
+class huggle_mass : public QObject, public Huggle::iExtension
 {
     Q_OBJECT
 #if QT_VERSION >= 0x050000
@@ -48,7 +47,5 @@ class huggle_mass : public QDeclarativeItem, public Huggle::iExtension
     private slots:
         void ClickMenu();
 };
-
-QML_DECLARE_TYPE(huggle_mass)
 
 #endif
