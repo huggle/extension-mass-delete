@@ -12,10 +12,9 @@
 #define NUKE_HPP
 
 #define HUGGLE_EXTENSION
-#include <definitions.hpp>
-
-#include <apiquery.hpp>
-#include <collectable_smartptr.hpp>
+#include <huggle_core/definitions.hpp>
+#include <huggle_core/apiquery.hpp>
+#include <huggle_core/collectable_smartptr.hpp>
 #include <QCheckBox>
 #include <QModelIndex>
 #include <QDialog>

@@ -41,7 +41,7 @@ file (GLOB huggle_nuke_uixx
 )
 
 SET(huggle_nuke_SOURCES ${huggle_nuke_srcx})
-SET(huggle_nuke_FORMS ${huggle_nuke_uixx} "../../mainwindow.ui")
+SET(huggle_nuke_FORMS ${huggle_nuke_uixx})
 
 if(QT5_BUILD)
     QT5_WRAP_CPP(huggle_nuke_HEADERS_MOC ${huggle_nuke_HEADERS})

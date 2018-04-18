@@ -9,22 +9,22 @@
 //GNU General Public License for more details.
 
 #include "mass_delete.hpp"
-#include <core.hpp>
-#include <collectable_smartptr.hpp>
-#include <localization.hpp>
-#include <QMessageBox>
-#include <query.hpp>
-#include <querypool.hpp>
-#include <mainwindow.hpp>
-#include <generic.hpp>
-#include <ui_mainwindow.h>
-#include <wikiedit.hpp>
-#include <wikisite.hpp>
-#include <wikipage.hpp>
-#include <wikiuser.hpp>
-#include <syslog.hpp>
-#include <configuration.hpp>
 #include "nuke.hpp"
+#include <huggle_core/core.hpp>
+#include <huggle_core/collectable_smartptr.hpp>
+#include <huggle_core/localization.hpp>
+#include <QMessageBox>
+#include <huggle_core/query.hpp>
+#include <huggle_core/querypool.hpp>
+#include <huggle_core/mainwindow.hpp>
+#include <huggle_core/generic.hpp>
+#include <huggle_core/wikiedit.hpp>
+#include <huggle_core/wikisite.hpp>
+#include <huggle_core/wikipage.hpp>
+#include <huggle_core/wikiuser.hpp>
+#include <huggle_core/syslog.hpp>
+#include <huggle_core/configuration.hpp>
+#include <QMenu>
 
 using namespace Huggle;
 
@@ -52,8 +52,8 @@ bool huggle_mass::IsWorking()
 void huggle_mass::Hook_MainWindowOnLoad(void *window)
 {
     Nuke::Window = (Huggle::MainWindow*)window;
-    this->menu = new QAction("Mass actions", Nuke::Window->ui->menuFile);
-    Nuke::Window->ui->menuFile->insertAction(Nuke::Window->ui->actionExit, this->menu);
+    this->menu = new QAction("Mass actions", (QObject*)Nuke::Window->GetMenu(HUGGLE_MW_MENU_SYSTEM));
+    Nuke::Window->GetMenu(HUGGLE_MW_MENU_SYSTEM)->insertAction(Nuke::Window->GetMenuItem(HUGGLE_MW_MENUITEM_EXIT), this->menu);
     connect(this->menu, SIGNAL(triggered()), this, SLOT(ClickMenu()));
 }
 

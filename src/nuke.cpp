@@ -9,21 +9,21 @@
 //GNU General Public License for more details.
 
 #include "nuke.hpp"
-#include <apiqueryresult.hpp>
-#include <configuration.hpp>
-#include <generic.hpp>
-#include <history.hpp>
-#include <historyitem.hpp>
-#include <localization.hpp>
+#include <huggle_core/apiqueryresult.hpp>
+#include <huggle_core/configuration.hpp>
+#include <huggle_core/generic.hpp>
+#include <huggle_core/history.hpp>
+#include <huggle_core/historyitem.hpp>
+#include <huggle_core/localization.hpp>
 #ifdef HUGGLE_WEBEN
-    #include <web_engine/huggleweb.hpp>
+    #include <huggle_core/web_engine/huggleweb.hpp>
 #else
-    #include <webkit/huggleweb.hpp>
+    #include <huggle_core/webkit/huggleweb.hpp>
 #endif
-#include <mainwindow.hpp>
-#include <syslog.hpp>
+#include <huggle_core/mainwindow.hpp>
+#include <huggle_core/syslog.hpp>
 #include <QTimer>
-#include <wikisite.hpp>
+#include <huggle_core/wikisite.hpp>
 #include "ui_nuke.h"
 
 using namespace Huggle;
