@@ -12,15 +12,15 @@
 #include <huggle_core/apiqueryresult.hpp>
 #include <huggle_core/configuration.hpp>
 #include <huggle_core/generic.hpp>
-#include <huggle_core/history.hpp>
+#include <huggle_ui/history.hpp>
 #include <huggle_core/historyitem.hpp>
 #include <huggle_core/localization.hpp>
 #ifdef HUGGLE_WEBEN
-    #include <huggle_core/web_engine/huggleweb.hpp>
+    #include <huggle_ui/web_engine/huggleweb.hpp>
 #else
-    #include <huggle_core/webkit/huggleweb.hpp>
+    #include <huggle_ui/webkit/huggleweb.hpp>
 #endif
-#include <huggle_core/mainwindow.hpp>
+#include <huggle_ui/mainwindow.hpp>
 #include <huggle_core/syslog.hpp>
 #include <QTimer>
 #include <huggle_core/wikisite.hpp>
