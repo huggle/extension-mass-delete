@@ -24,6 +24,7 @@
 #include <huggle_core/syslog.hpp>
 #include <QTimer>
 #include <huggle_core/wikisite.hpp>
+#include <huggle_ui/uigeneric.hpp>
 #include "ui_nuke.h"
 
 using namespace Huggle;
@@ -113,7 +114,7 @@ void Nuke::InsertRevision(QString type, QString title, QString time, QString sum
 
 static void qEdits_fail(Query *result)
 {
-    Generic::MessageBox("Error", "Unable to retrieve a list of contributions for this user, reason: " + result->GetFailureReason());
+    UiGeneric::MessageBox("Error", "Unable to retrieve a list of contributions for this user, reason: " + result->GetFailureReason());
     HUGGLE_DEBUG1(result->Result->Data);
     ((Nuke*)result->CallbackOwner)->Reload();
 }
@@ -124,7 +125,7 @@ static void qEdits_finish(Query *result)
     QList<ApiQueryResultNode*> list = qx->GetApiQueryResult()->GetNodes("item");
     if (list.count() == 0)
     {
-        Generic::MessageBox("No edits", "There were no edits found made by this user");
+        UiGeneric::MessageBox("No edits", "There were no edits found made by this user");
         ((Nuke*)result->CallbackOwner)->Reload();
         return;
     }
@@ -143,7 +144,7 @@ void Nuke::on_pushButton_clicked()
 {
     if (this->ui->lineEdit->text() == "")
     {
-        Generic::MessageBox("No user", "You didn't provide any user name I could look for");
+        UiGeneric::MessageBox("No user", "You didn't provide any user name I could look for");
         return;
     }
 
@@ -168,13 +169,13 @@ void Nuke::on_pushButton_2_clicked()
 {
     if (!this->CheckBoxes.count())
     {
-        Generic::MessageBox("Edit list", "You didn't select any edits to revert or delete");
+        UiGeneric::MessageBox("Edit list", "You didn't select any edits to revert or delete");
         return;
     }
 
     if (!this->ui->radioButton_2->isChecked())
     {
-        Generic::MessageBox("", "This feature is not implemented yet");
+        UiGeneric::MessageBox("", "This feature is not implemented yet");
         return;
     }
 
