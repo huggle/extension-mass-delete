@@ -159,7 +159,7 @@ void Nuke::on_pushButton_clicked()
     this->qEdits = new Huggle::ApiQuery(Huggle::ActionQuery, this->Site());
     this->qEdits->Parameters = "list=usercontribs&uclimit=500&ucuser=" + QUrl::toPercentEncoding(this->ui->lineEdit->text()) +
             "&ucprop=comment%7Ctimestamp%7Ctitle%7Cids%7Csize";
-    this->qEdits->callback = (Callback) qEdits_finish;
+    this->qEdits->SuccessCallback = (Callback) qEdits_finish;
     this->qEdits->FailureCallback = (Callback) qEdits_fail;
     this->qEdits->CallbackOwner = this;
     this->qEdits->Process();
