@@ -234,7 +234,7 @@ void Nuke::OnTick()
                                          this->Delete->GetFailureReason());
         } else
         {
-            HistoryItem *hi = new HistoryItem();
+            HistoryItem *hi = new HistoryItem(this->Delete->GetSite());
             hi->IsRevertable = false;
             hi->Result = _l("successful");
             hi->Target = page;
