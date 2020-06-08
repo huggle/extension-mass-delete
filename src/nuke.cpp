@@ -240,7 +240,7 @@ void Nuke::OnTick()
             hi->Target = page;
             hi->Type = HistoryDelete;
             Nuke::Window->_History->Prepend(hi);
-            Syslog::HuggleLogs->Log("MassAction: Successfuly deleted " + this->ui->tableWidget->item(this->CurrentEdit, 1)->text());
+            Syslog::HuggleLogs->Log("MassAction: Successfully deleted " + this->ui->tableWidget->item(this->CurrentEdit, 1)->text());
         }
         this->CurrentEdit++;
         this->Delete = nullptr;
